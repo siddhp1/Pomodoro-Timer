@@ -1,60 +1,113 @@
-* {
-    /* border: 2px solid blue; */
+/* Reset CSS */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
 }
 
-.overall-container {
+/* Set global font family */
+* {
+    font-family: 'Gabarito', sans-serif;
+    color: white;
+}
+
+/* Background of page */
+body {
+    background-color: #25A244;
+}
+
+/* Change this to nav bar later */
+#site-title {
+    font-size: xx-large;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+/* Outer container */
+.outer-container {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
-.overall-container #title {
-    border: 4px solid blue;
-}
-
-h1 {
-    color: red;
-    background-color: black;
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: 700;
-    text-align: center;
-  }
-
-.flex-container {
-    display: flex;
-    /* justify-content: center; */
-    gap: 8px;
-}
-
-.flex-container div {
-    padding: 10px;
-    text-align: center;
-    color: white;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 30px;
+/* Inner containers */
+.outer-container #depth1 {
+    width: 500px;
     height: 300px;
-    width: 200px;
-    border: 4px solid saddlebrown;
-    flex: 1;
+    padding: 10px; 
+    margin: 10px;
+    border: 4px solid #4AD66D; 
+    border-radius: 10px;
+    background-color:#4AD66D;
 }
 
-.flex-container .image {
-    flex: 2 1 0%;
+.timer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.introduction {
-    background-color: #548ca8;
+.timer-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
-.main-content {
-    background-color: #476072;
+.timer-buttons button {
+    border: 2px solid #1A7431;
+    border-radius: 2px;
+    background-color: #1A7431;
 }
 
-.future {
-    background-color: #334257;
+.timer-buttons button:active {
+    background-color: #6EDE8A;
+    transition-duration: 50ms;
 }
 
 #timer {
-    width: 200px;
-    height: auto;
-    margin: 30px;
+    font-size: 100px;
+    text-align: center;
+    margin: 20px;
 }
+
+.startstop-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.startstop-buttons button {
+    width: 200px;
+    height: 50px;
+    border: 2px solid #1A7431;
+    border-radius: 2px;
+    background-color: #1A7431;
+}
+
+.startstop-buttons button:active {
+    background-color: #6EDE8A;
+    transition-duration: 50ms;
+}
+
+/* .history-container {
+    
+} */
+

@@ -5,39 +5,32 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gabarito&display=swap" rel="stylesheet">
         <script src="javascript.js" defer></script>
         <title>Pomodoro Timer</title>
     </head>
     <body>
-        <div class="overall-container">
-            <div id="title">
-                <h1>Pomodoro Timer</h1>
-            </div>
-            <div class="flex-container">
-                <div class="introduction">
-                    <p>This is my pomodoro timer webapp</p>
-                </div>
-                <div class="image">
-                    <img id="timer" src="media/timer.jpg" alt="Timer Image">
-                </div>
-                <div class="main-content">
-                    <p>Which is going to be embedded in my notion</p>
-                </div>
-            </div>
-            <div id="container">
-                <button onclick="alert('Hello World')">Click Me</button>
-                <button id="btn">Click Me</button>
-                <button id="btn2">Click Me Too</button>
-            </div>
-            <div id="container2">
-                <button id="1">Click Me 1</button>
-                <button id="2">Click Me 2</button>
-                <button id="3">Click Me 3</button>
-            </div>
-        </div>
+        <div id="site-title"><h1>Siddh's Pomodoro Timer</h1></div>
         
-        
+        <div class="outer-container">
+            <div class="timer-container" id="depth1">
+                <div class="timer-buttons">
+                    <button id="pomodoro">Pomodoro</button>
+                    <button id="short">Short Break</button>
+                    <button id="long">Long Break</button>
+                </div>
+                <div id="timer">
+                    <h1 id="timertext">00:00</h1>
+                </div>
+                <div class="startstop-buttons">
+                    <button id="startstop">Start</button>
+                </div>
+            </div>
+            <!-- <div class="history-container" id="depth1">
+                <p>History</p>
+            </div> -->
+        </div> 
     </body>
 </html>
-
-<!--Make sure i push to github before sleeping-->

@@ -8,6 +8,22 @@
 // Stack type of loop that changes
 // update the "history element with a scrollbar and such"
 
+// Hardcoded Defaults
+let defaultPomo = 60; 
+let defaultShort = 5;
+let defaultLong = 10;
+
+let hours;
+let minutes; 
+let seconds; 
+
+// Functions to convert from minutes to hms
+function convertToHMS (minutes) {
+  hours = Math.floor(minutes / 60);
+  minutes = minutes % 60;
+  seconds = 0;
+}
+
 // Settings Menu
 
 // Open and close the menu
@@ -36,15 +52,28 @@ function closeSettingsMenu(event) {
   }
 }
 
+const pomodoroMinutesInput = document.getElementById('pomodoro-minutes');
+const shortMinutesInput = document.getElementById('short-minutes');
+const longMinutesInput = document.getElementById('long-minutes');
+
+pomodoroMinutesInput.value = defaultPomo;
+shortMinutesInput.value = defaultShort;
+longMinutesInput.value = defaultLong;
+
+var pomodorominutes = pomodoroMinutesInput.value;
+var shortminutes = shortMinutesInput.value;
+var longminutes = longMinutesInput.value;
+
+// Add adjustment for the values and set the hms based on the hms 
+
 // Add the "save" button
+
 
 
 // Default to pomodoro once settings page is live
 
 // Buttons to switch between timers
-let hours = 0; 
-let minutes = 0;
-let seconds = 5;
+
 let timerRunning = false;
 
 const pomoButton = document.getElementById("pomodoro");
@@ -71,21 +100,15 @@ function setTime(id) {
   }
   switch(id) {
     case "pomodoro": {
-      hours = 1;
-      minutes = 0;
-      seconds = 0;
+      convertToHMS(pomodorominutes);
       break; 
     }
     case "short": {
-      hours = 0;
-      minutes = 10;
-      seconds = 0;
+      convertToHMS(pomodorominutes);
       break; 
     }
     case "long": {
-      hours = 0;
-      minutes = 20;
-      seconds = 0;
+      convertToHMS(pomodorominutes);
       break; 
     }
   }

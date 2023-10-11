@@ -127,9 +127,15 @@ body {
     
 } */
 
+.history-container h3 {
+    font-size: larger;
+}
+
 #settings-menu {
-    display: none;
+    display: flex;
+    flex-direction: column;
     position: fixed;
+    padding: 3px;
     width: 400px;
     height: 600px;
     padding: 10px; 
@@ -151,6 +157,31 @@ body {
 
 #settings-menu p {
 
+}
+
+.time-settings-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+}
+
+.time-settings-input div {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+
+.time-settings-input p {
+    padding-bottom: 2%;
+}
+
+.time-settings-input div input {
+    background-color: #6EDE8A;
+    border: solid white 1.5px;
+    border-radius: 2px;
+    width: 80%;
 }
 
 

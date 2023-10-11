@@ -118,13 +118,19 @@ const toggleButton = document.getElementById("startstop");
 function updateTimerDisplay() {
   if (hours >= 1) {
     timerDisplay.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    document.title = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
   }
   else if (minutes >= 1) {
     timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
   }
   else {
     timerDisplay.textContent = `${String(seconds).padStart(1, '0')}`;
+    `${String(seconds).padStart(2, '0')}`;
   }
+
+  // Update website title
+  document.title = ""
 }
 
 function toggleTimer() {

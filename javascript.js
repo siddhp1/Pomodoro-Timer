@@ -3,10 +3,49 @@
 // 2. duration of each timer
 // 3. configuration for pomodoro technique
 // 3.5 maybe presets for the configs?
+// 4. Customizable alarm
 
+// Stack type of loop that changes
+// update the "history element with a scrollbar and such"
+
+// Settings Menu
+
+// Open and close the menu
+const settingsMenu = document.getElementById('settings-menu');
+const settingsButton = document.getElementById('settings-button');
+
+let settingsOpen = false; 
+
+settingsButton.addEventListener('click', () => {
+  if (settingsOpen) {
+    settingsMenu.style.display = 'none';
+    document.removeEventListener('mousedown', closeSettingsMenu);
+    settingsOpen = false;
+  }
+  else {
+    settingsMenu.style.display = 'block';
+    document.addEventListener('mousedown', closeSettingsMenu);
+    settingsOpen = true; 
+  }
+});
+
+function closeSettingsMenu(event) {
+  if (!settingsMenu.contains(event.target) && !settingsButton.contains(event.target)) {
+    settingsMenu.style.display = 'none';
+    document.removeEventListener('mousedown', closeSettingsMenu);
+  }
+}
+
+// Add the "save" button
+
+
+// Default to pomodoro once settings page is live
+
+// Buttons to switch between timers
 let hours = 0; 
-let minutes = 1;
-let seconds = 10;
+let minutes = 0;
+let seconds = 5;
+let timerRunning = false;
 
 const pomoButton = document.getElementById("pomodoro");
 const shortButton = document.getElementById("short");
@@ -25,14 +64,16 @@ longButton.addEventListener('click', () => {
 });
 
 function setTime(id) {
-  // Check if the timer is running
-  // if it is stop it and then set time
-  
+  if (timerRunning) {
+    clearInterval(timerInterval);
+    timerRunning = false;
+    toggleButton.textContent = "Start";
+  }
   switch(id) {
     case "pomodoro": {
       hours = 1;
       minutes = 0;
-      seconds = 30;
+      seconds = 0;
       break; 
     }
     case "short": {
@@ -51,13 +92,13 @@ function setTime(id) {
   updateTimerDisplay();
 }
 
+// Timer
 let timerInterval;
-let timerRunning = false;
+var chime = new Audio('media/chime.mp3');
 
 const timerDisplay = document.getElementById("timertext");
 const toggleButton = document.getElementById("startstop");
 
-// Maybe add seconds countdown?
 function updateTimerDisplay() {
   if (hours >= 1) {
     timerDisplay.textContent = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
@@ -86,9 +127,8 @@ function toggleTimer() {
                     clearInterval(timerInterval);
                     timerRunning = false;
                     toggleButton.textContent = "Start";
-                    // Add a notification/alert here
+                    chime.play();
                     // Add functionality to automatically switch page state to the next timer
-                    alert("Timer Ended");
                   }
                   else {
                     hours--;
@@ -104,6 +144,7 @@ function toggleTimer() {
             }
 
             updateTimerDisplay();
+            // update the title of the webpage with the time
         }, 1000);
     }
 }

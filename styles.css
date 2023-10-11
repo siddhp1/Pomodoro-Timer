@@ -63,10 +63,12 @@ body {
 
 /* Inner containers */
 .outer-container #depth1 {
-    width: 500px;
-    height: 300px;
-    padding: 10px; 
-    margin: 10px;
+    min-width: 50%;
+    max-width: 100%;
+    min-height: 32vh;
+    max-height: 50vh;
+    padding: 2vh; 
+    margin: 1vh;
     border: 4px solid #4AD66D; 
     border-radius: 10px;
     background-color:#4AD66D;
@@ -134,10 +136,10 @@ body {
 #settings-menu {
     display: flex;
     flex-direction: column;
-    position: fixed;
+    position: fixed; 
     padding: 3px;
     width: 400px;
-    height: 600px;
+    height: 150px;
     padding: 10px; 
     margin: 10px;
     border: 4px solid #6EDE8A; 

@@ -1,35 +1,32 @@
-// Add settings with three settings
-// 1. Colour scheme
-// 2. duration of each timer
-// 3. configuration for pomodoro technique
-// 3.5 maybe presets for the configs?
-// 4. Customizable alarm
-
-// Stack type of loop that changes
-// update the "history element with a scrollbar and such"
-
-// Hardcoded Defaults
-let defaultPomo = 60; 
-let defaultShort = 5;
-let defaultLong = 10;
+// Default Settings
+let pomodoro = 60;
+let short = 10;
+let long = 20;
 
 let hours;
 let minutes; 
 let seconds; 
 
 // Functions to convert from minutes to hms
-function convertToHMS (minutes) {
-  hours = Math.floor(minutes / 60);
-  minutes = minutes % 60;
+function convertToHMS (mins) {
+  let time = mins; 
+  hours = Math.floor(time / 60);
+  minutes = time % 60;
   seconds = 0;
 }
+convertToHMS(pomodoro)
 
-// Settings Menu
-
-// Open and close the menu
+// SETTINGS MENU
+// Get elements
 const settingsMenu = document.getElementById('settings-menu');
 const settingsButton = document.getElementById('settings-button');
+const inputPomodoroTime = document.getElementById('pomodoro-minutes');
+const inputShortTime = document.getElementById('short-minutes');
+const inputLongTime = document.getElementById('long-minutes');
+const saveButton = document.getElementById('save-settings');
 
+// Open the menu
+settingsMenu.style.display = 'none'; //Maybe move this to the script or add the settings menu later
 let settingsOpen = false; 
 
 settingsButton.addEventListener('click', () => {
@@ -52,33 +49,29 @@ function closeSettingsMenu(event) {
   }
 }
 
-const pomodoroMinutesInput = document.getElementById('pomodoro-minutes');
-const shortMinutesInput = document.getElementById('short-minutes');
-const longMinutesInput = document.getElementById('long-minutes');
+// Set items in boxes to defaults
+inputPomodoroTime.value = pomodoro; 
+inputShortTime.value = short; 
+inputLongTime.value = long; 
 
-pomodoroMinutesInput.value = defaultPomo;
-shortMinutesInput.value = defaultShort;
-longMinutesInput.value = defaultLong;
+// Get inputs when save is pressed
+saveButton.addEventListener('click', () => {
+  // Check that each is a valid integer > 0
+  pomodoro = inputPomodoroTime.value;
+  short = inputShortTime.value;
+  long = inputLongTime.value;
 
-var pomodorominutes = pomodoroMinutesInput.value;
-var shortminutes = shortMinutesInput.value;
-var longminutes = longMinutesInput.value;
+  convertToHMS(pomodoro);
+  updateTimerDisplay();
+});
 
-// Add adjustment for the values and set the hms based on the hms 
-
-// Add the "save" button
-
-
-
-// Default to pomodoro once settings page is live
-
-// Buttons to switch between timers
-
-let timerRunning = false;
-
+// TIMER BUTTONS
+// Get elements
 const pomoButton = document.getElementById("pomodoro");
 const shortButton = document.getElementById("short");
-const longButton = document.getElementById("long"); 
+const longButton = document.getElementById("long");
+
+let timerRunning = false;
 
 pomoButton.addEventListener('click', () => {
   setTime("pomodoro");
@@ -100,15 +93,15 @@ function setTime(id) {
   }
   switch(id) {
     case "pomodoro": {
-      convertToHMS(pomodorominutes);
+      convertToHMS(pomodoro);
       break; 
     }
     case "short": {
-      convertToHMS(pomodorominutes);
+      convertToHMS(short);
       break; 
     }
     case "long": {
-      convertToHMS(pomodorominutes);
+      convertToHMS(long);
       break; 
     }
   }
@@ -174,3 +167,14 @@ function toggleTimer() {
 
 toggleButton.addEventListener("click", toggleTimer);
 updateTimerDisplay();
+
+// Add settings with three settings
+// 1. Colour scheme
+// 2. duration of each timer
+// 3. configuration for pomodoro technique
+// 3.5 maybe presets for the configs?
+// 4. Customizable alarm
+
+// Stack type of loop that changes
+// update the "history element with a scrollbar and such"
+

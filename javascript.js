@@ -1,5 +1,5 @@
 // Default Settings
-let pomodoro = 60;
+let pomodoro = 50;
 let short = 10;
 let long = 20;
 
@@ -17,35 +17,33 @@ function convertToHMS (mins) {
 convertToHMS(pomodoro)
 
 // SETTINGS MENU
-// Get elements
-const settingsMenu = document.getElementById('settings-menu');
-const settingsButton = document.getElementById('settings-button');
-const inputPomodoroTime = document.getElementById('pomodoro-minutes');
-const inputShortTime = document.getElementById('short-minutes');
-const inputLongTime = document.getElementById('long-minutes');
+const settingsModal = document.querySelector('#settings-modal');
+const settingsButton = document.querySelector('#settings-button');
+const inputPomodoroTime = document.querySelector('#pomodoro-minutes');
+const inputShortTime = document.querySelector('#short-minutes');
+const inputLongTime = document.querySelector('#long-minutes');
 const saveButton = document.getElementById('save-settings');
 
 // Open the menu
-settingsMenu.style.display = 'none'; //Maybe move this to the script or add the settings menu later
+settingsModal.style.display = 'none';
 let settingsOpen = false; 
 
 settingsButton.addEventListener('click', () => {
   if (settingsOpen) {
-    settingsMenu.style.display = 'none';
-    document.removeEventListener('mousedown', closeSettingsMenu);
+    settingsModal.style.display = 'none';
+    document.removeEventListener('mousedown', closesettingsModal);
     settingsOpen = false;
   }
   else {
-    settingsMenu.style.display = 'block';
-    document.addEventListener('mousedown', closeSettingsMenu);
+    settingsModal.style.display = 'block';
+    document.addEventListener('mousedown', closesettingsModal);
     settingsOpen = true; 
   }
 });
 
-function closeSettingsMenu(event) {
-  if (!settingsMenu.contains(event.target) && !settingsButton.contains(event.target)) {
-    settingsMenu.style.display = 'none';
-    document.removeEventListener('mousedown', closeSettingsMenu);
+window.onclick = function(event) {
+  if (event.target == settingsModal) {
+    settingsModal.style.display = 'none';
   }
 }
 
@@ -61,35 +59,40 @@ saveButton.addEventListener('click', () => {
   short = inputShortTime.value;
   long = inputLongTime.value;
 
+  settingsModal.style.display = 'none';
+
   convertToHMS(pomodoro);
   updateTimerDisplay();
 });
 
 // TIMER BUTTONS
-// Get elements
 const pomoButton = document.getElementById("pomodoro");
 const shortButton = document.getElementById("short");
 const longButton = document.getElementById("long");
 
 let timerRunning = false;
+var state = 0;
 
 pomoButton.addEventListener('click', () => {
   setTime("pomodoro");
+  state = 0;
 });
 
 shortButton.addEventListener('click', () => {
   setTime("short");
+  state = 1;
 });
 
 longButton.addEventListener('click', () => {
   setTime("long");
+  state = 2; 
 });
 
 function setTime(id) {
   if (timerRunning) {
     clearInterval(timerInterval);
     timerRunning = false;
-    toggleButton.textContent = "Start";
+    toggleButtonText.textContent = "Start";
   }
   switch(id) {
     case "pomodoro": {
@@ -108,12 +111,13 @@ function setTime(id) {
   updateTimerDisplay();
 }
 
-// Timer
+// TIMER
 let timerInterval;
 var chime = new Audio('media/chime.mp3');
 
-const timerDisplay = document.getElementById("timertext");
-const toggleButton = document.getElementById("startstop");
+const timerDisplay = document.getElementById("timer");
+const toggleButton = document.getElementById("start-stop-button");
+const toggleButtonText = toggleButton.querySelector('h3');
 
 function updateTimerDisplay() {
   if (hours >= 1) {
@@ -129,18 +133,18 @@ function updateTimerDisplay() {
     `${String(seconds).padStart(2, '0')}`;
   }
 
-  // Update website title
-  document.title = ""
+  // Update tab title
+  document.title = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 }
 
 function toggleTimer() {
     if (timerRunning) {
         clearInterval(timerInterval);
         timerRunning = false;
-        toggleButton.textContent = "Start";
+        toggleButtonText.textContent = "Start";
     } else {
         timerRunning = true;
-        toggleButton.textContent = "Stop";
+        toggleButtonText.textContent = "Stop";
 
         timerInterval = setInterval(function () {
             if (seconds === 0) {
@@ -150,7 +154,14 @@ function toggleTimer() {
                     timerRunning = false;
                     toggleButton.textContent = "Start";
                     chime.play();
-                    // Add functionality to automatically switch page state to the next timer
+                    if (state == 0) {
+                      state = 1;
+                      setTime("short"); 
+                    }
+                    else {
+                      state = 0;
+                      setTime("pomodoro");
+                    }
                   }
                   else {
                     hours--;
@@ -166,21 +177,9 @@ function toggleTimer() {
             }
 
             updateTimerDisplay();
-            // update the title of the webpage with the time
         }, 1000);
     }
 }
 
 toggleButton.addEventListener("click", toggleTimer);
 updateTimerDisplay();
-
-// Add settings with three settings
-// 1. Colour scheme
-// 2. duration of each timer
-// 3. configuration for pomodoro technique
-// 3.5 maybe presets for the configs?
-// 4. Customizable alarm
-
-// Stack type of loop that changes
-// update the "history element with a scrollbar and such"
-

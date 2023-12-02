@@ -1,72 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles.css" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Gabarito&display=swap" rel="stylesheet">
-        <script src="javascript.js" defer></script>
-        <title>Pomodoro Timer</title>
-    </head>
-    <body>
-        <div class="navigation-bar">
-            <div id="site-title"><h1>Siddh's Pomodoro Timer</h1></div>
-            <div class="settings-button">
-                <img id="settings-button" src="media/settings.png" alt="Settings Button">
-            </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"/>
+    <script src="javascript.js" defer></script>
+    <title>Pomodoro Timer</title>
+</head>
+<body>
+    <div class="flex-column flex-center">
+        <!-- Site header and navigation bar -->
+        <div class="flex-center margin-small">
+            <h2>Pomodoro Timer</h2>
         </div>
-        <div class="outer-container">
-            <div class="timer-container" id="depth1">
-                <div class="timer-buttons">
-                    <button id="pomodoro">Pomodoro</button>
-                    <button id="short">Short Break</button>
-                    <button id="long">Long Break</button>
-                </div>
-                <div id="timer">
-                    <h1 id="timertext">00:00</h1>
-                </div>
-                <div class="startstop-buttons">
-                    <button id="startstop">Start</button>
-                </div>
+        <button id="settings-button">
+            <img src="media/settings.png" alt="Settings Button"/>
+        </button>
+
+        <!-- Timer -->
+        <div class="flex-center flex-column" id="timer-wrapper">
+            <div class="flex-center gap-medium" id="timer-buttons">
+                <button id="pomodoro">
+                    <h3>Pomodoro</h3>
+                </button>
+                <button id="short">
+                    <h3>Short Break</h3>
+                </button>
+                <button id="long">
+                    <h3>Long Break</h3>
+                </button>
             </div>
-            <!-- <div class="history-container" id="depth1">
-                <h3>History</h3>
-            </div> -->
-            <div id="settings-menu">
-                <h3>Settings</h3>
-                <div class="time-settings">
-                    <!-- <h5>Time Settings (Minutes)</h5> -->
-                    <div class="time-settings-input">
-                        <div class="pomodoro-minutes">
+            <h1 class="margin-small" id="timer">00:00</h1>
+            <button id="start-stop-button">
+                <h3>Start</h3>
+            </button>
+        </div>
+
+        <!-- Settings Modal -->
+        <div class="modal" id="settings-modal">
+            <div class="modal-content" id="settings-modal-content">
+                <div class="flex-center flex-column gap-medium">
+                    <h3>Settings</h3>
+                    <div class="flex-center gap-medium" id="time-settings">
+                        <div class="flex-column flex-center gap-small">
                             <p>Pomodoro</p>
                             <input id="pomodoro-minutes" type="text">
                         </div>
-                        <div class="short-minutes">
+                        <div class="flex-column flex-center gap-small">
                             <p>Short Break</p>
                             <input id="short-minutes" type="text">
                         </div>
-                        <div class="long-minutes">
+                        <div class="flex-column flex-center gap-small">
                             <p>Long Break</p>
                             <input id="long-minutes" type="text">
                         </div>
                     </div>
-                </div>
-                <!-- <div class="pomodoro-settings">
-                    <h5>Pomodoro Settings</h5>
-                </div> -->
-                <!-- <div class="colour-settings">
-                    <h5>Colour Settings</h5>
-                </div>
-                <div class="sound-settings">
-                    <h5>Sound Settings</h5>
-                </div> -->
-                <div class="save-button">
                     <button id="save-settings">Save</button>
                 </div>
             </div>
-        </div> 
-    </body>
+        </div>    
+    </div> 
+</body>
 </html>

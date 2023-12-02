@@ -1,2 +1,3 @@
 # Pomodoro Timer
-Pomodoro timer webpage created from scratch with HTML, CSS, and JavaScript.
+Pomodoro timer created from scratch with HTML, CSS, and JavaScript.
+As of now, the timer is final, but I may come to revisit it and add accounts using Django and other settings, such as color palettes and custom sounds

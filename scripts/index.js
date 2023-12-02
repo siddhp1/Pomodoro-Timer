@@ -113,7 +113,7 @@ function setTime(id) {
 
 // TIMER
 let timerInterval;
-var chime = new Audio('media/chime.mp3');
+var chime = new Audio('../media/chime.mp3');
 
 const timerDisplay = document.getElementById("timer");
 const toggleButton = document.getElementById("start-stop-button");
@@ -152,7 +152,7 @@ function toggleTimer() {
                   if (hours === 0) {
                     clearInterval(timerInterval);
                     timerRunning = false;
-                    toggleButton.textContent = "Start";
+                    toggleButtonText.textContent = "Start";
                     chime.play();
                     if (state == 0) {
                       state = 1;

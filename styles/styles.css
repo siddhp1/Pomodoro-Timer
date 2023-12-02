@@ -114,7 +114,7 @@ button {
 }
 
 #settings-button img {
-    width: 3vw;
+    width: 4vw;
     height: auto;
 }
 
@@ -130,7 +130,7 @@ button {
 #timer-buttons button {
     width: 15vw;
     height: 7vh;
-    border-radius: 0.2vw;
+    border-radius: 0.3vw;
     background-color: #004733;
 }
 
@@ -144,7 +144,7 @@ button {
     height: 7vh;
     background-color: #004733;
     border: none;
-    border-radius: 0.2vw;
+    border-radius: 0.3vw;
 }
 
 #start-stop-button:hover {

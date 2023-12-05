@@ -31,12 +31,10 @@ let settingsOpen = false;
 settingsButton.addEventListener('click', () => {
   if (settingsOpen) {
     settingsModal.style.display = 'none';
-    document.removeEventListener('mousedown', closesettingsModal);
     settingsOpen = false;
   }
   else {
     settingsModal.style.display = 'block';
-    document.addEventListener('mousedown', closesettingsModal);
     settingsOpen = true; 
   }
 });

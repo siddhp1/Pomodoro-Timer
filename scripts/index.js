@@ -113,7 +113,8 @@ function setTime(id) {
 
 // TIMER
 let timerInterval;
-var chime = new Audio('../media/chime.mp3');
+// var chime = new Audio('../media/chime.mp3');
+var chime = new Audio('https://raw.githubusercontent.com/siddhp1/Pomodoro-Timer/main/media/chime.mp3');
 
 const timerDisplay = document.getElementById("timer");
 const toggleButton = document.getElementById("start-stop-button");

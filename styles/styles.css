@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400;500;600;700;800;900&display=swap');
+
+/* Reset CSS */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+/* Set global font family and color*/
+* {
+    font-family: 'Gabarito', sans-serif;
+    color: #f3f4f6;
+}
+
+/* General Styles */
+body {
+    background-color: #004733;
+}
+
+h1 {
+    font-size: 20vw;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 4vw;
+    font-weight: 500;
+}
+
+h3 {
+    font-size: 2vw;
+    font-weight: 400;
+}
+
+p {
+    font-size: 1.5vw;
+    font-weight: 400;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.margin-small {
+    margin: 1vw;
+}
+
+.gap-large {
+    gap: 1.2vw;
+}
+
+.gap-medium {
+    gap: 1vw;
+}
+
+.gap-small {
+    gap: 0.2vw;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1.5vw;
+    border-radius: 0.5vw;
+    z-index: 1000;
+}
+
+/* Navigation bar */
+#settings-button {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #004733;
+    padding: 1vw;
+}
+
+#settings-button img {
+    width: 4vw;
+    height: auto;
+}
+
+/* Timer */
+#timer-wrapper {
+    background-color: #2b6a4d;
+    width: 80vw;
+    height: 75vh;
+    padding: 1vw;
+    border-radius: 1vw;
+}
+
+#timer-buttons button {
+    width: 15vw;
+    height: 7vh;
+    border-radius: 0.3vw;
+    background-color: #004733;
+}
+
+#timer-buttons button:hover {
+    background-color: #568d66;
+    transition-duration: 200ms;
+}
+
+#start-stop-button {
+    width: 20vw;
+    height: 7vh;
+    background-color: #004733;
+    border: none;
+    border-radius: 0.3vw;
+}
+
+#start-stop-button:hover {
+    background-color: #568d66;
+    transition-duration: 200ms;
+}
+
+/* Settings modal */
+#settings-modal-content {
+    background-color: #2b6a4d;
+}
+
+#time-settings input {
+    background-color: #a5c1ae;
+    border: 0.2vw solid transparent;
+    border-radius: 0.2vw;
+    width: 8vw;
+    outline: none;
+}
+
+#time-settings input:focus {
+    border: 0.2vw solid #f3f4f6; /* Change the border color and style on focus */
+}
+
+#save-settings {
+    width: 10vw;
+    height: 3vh;
+    background-color: #004733;
+    border: none;
+    border-radius: 0.2vw;
+}
+
+#save-settings:hover {
+    background-color: #568d66;
+    transition-duration: 200ms;
+}

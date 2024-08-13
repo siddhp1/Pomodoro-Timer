@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="media/favicon.ico">
+    <link rel="stylesheet" href="styles/styles.css"/>
+    <script src="scripts/index.js" defer></script>
+    <title>Pomodoro Timer</title>
+</head>
+<body>
+    <div class="flex-column flex-center">
+        <!-- Site header and navigation bar -->
+        <div class="flex-center margin-small">
+            <h2>Pomodoro Timer</h2>
+        </div>
+        <button id="settings-button">
+            <img src="media/settings.png" alt="Settings Button"/>
+        </button>
+
+        <!-- Timer -->
+        <div class="flex-center flex-column" id="timer-wrapper">
+            <div class="flex-center gap-medium" id="timer-buttons">
+                <button id="pomodoro">
+                    <h3>Pomodoro</h3>
+                </button>
+                <button id="short">
+                    <h3>Short Break</h3>
+                </button>
+                <button id="long">
+                    <h3>Long Break</h3>
+                </button>
+            </div>
+            <h1 class="margin-small" id="timer">00:00</h1>
+            <button id="start-stop-button">
+                <h3>Start</h3>
+            </button>
+        </div>
+
+        <!-- Settings Modal -->
+        <div class="modal" id="settings-modal">
+            <div class="modal-content" id="settings-modal-content">
+                <div class="flex-center flex-column gap-medium">
+                    <h3>Settings</h3>
+                    <div class="flex-center gap-medium" id="time-settings">
+                        <div class="flex-column flex-center gap-small">
+                            <p>Pomodoro</p>
+                            <input id="pomodoro-minutes" type="text">
+                        </div>
+                        <div class="flex-column flex-center gap-small">
+                            <p>Short Break</p>
+                            <input id="short-minutes" type="text">
+                        </div>
+                        <div class="flex-column flex-center gap-small">
+                            <p>Long Break</p>
+                            <input id="long-minutes" type="text">
+                        </div>
+                    </div>
+                    <button id="save-settings">Save</button>
+                </div>
+            </div>
+        </div>    
+    </div> 
+</body>
+</html>

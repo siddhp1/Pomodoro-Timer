@@ -22,6 +22,9 @@ const config = {
       fontFamily: {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
+      fontSize: {
+        "20xl": "16rem",
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

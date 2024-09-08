@@ -7,6 +7,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+import Timer from "@/components/Timer";
+import Settings from "@/components/Settings";
+
+import ThemeToggle from "@/components/ThemeToggle";
+
 export default function Home() {
   return (
     <>
@@ -15,52 +20,14 @@ export default function Home() {
           Pomodoro Timer
         </h1>
 
-        <Card>
-          <CardContent>
-            <div className="flex flex-col">
-              <p className="scroll-m-20 text-4xl font-semibold tracking-tight lg:text-9xl">
-                00:00
-              </p>
-            </div>
-          </CardContent>
-        </Card>
+        {/* Adjust main page spacing and stuff after */}
 
-        <div className="flex items-center">
-          <Card>
-            <CardHeader>
-              <CardTitle>Settings</CardTitle>
-              <CardDescription>Card Description</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="w-200">
-                <h1 className="scroll-m-20 text-4xl font-semibold tracking-tight lg:text-9xl">
-                  25:00
-                </h1>
-              </div>
-            </CardContent>
-            <CardFooter>
-              <p>Card Footer</p>
-            </CardFooter>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Card Title</CardTitle>
-              <CardDescription>Card Description</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <h1 className="scroll-m-20 text-4xl font-semibold tracking-tight lg:text-9xl">
-                25:00
-              </h1>
-            </CardContent>
-            <CardFooter>
-              <p>Card Footer</p>
-            </CardFooter>
-          </Card>
-        </div>
+        <Timer />
+
+        <ThemeToggle />
+
+        <Settings />
       </div>
-
-      {/* add a timer component here */}
-      {/* <ThemeToggle /> */}
     </>
   );
 }
